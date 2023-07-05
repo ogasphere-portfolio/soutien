@@ -1,0 +1,48 @@
+<h1 id="altorouter--build-statushttpsimgshieldsiotravisdannyvankootenaltoroutermasterhttpstravis-ciorgdannyvankootenaltorouter-latest-stable-versionhttpsposerpugxorgaltorouteraltoroutervstablesvghttpspackagistorgpackagesaltorouteraltorouter-licensehttpsposerpugxorgaltorouteraltorouterlicensesvghttpspackagistorgpackagesaltorouteraltorouter-code-climatehttpscodeclimatecomgithubdannyvankootenaltorouterbadgesgpasvghttpscodeclimatecomgithubdannyvankootenaltorouter-test-coveragehttpscodeclimatecomgithubdannyvankootenaltorouterbadgescoveragesvghttpscodeclimatecomgithubdannyvankootenaltorouter">AltoRouter  <a href="https://travis-ci.org/dannyvankooten/AltoRouter"><img src="https://img.shields.io/travis/dannyvankooten/AltoRouter/master" alt="Build Status" /></a> <a href="https://packagist.org/packages/altorouter/altorouter"><img src="https://poser.pugx.org/altorouter/altorouter/v/stable.svg" alt="Latest Stable Version" /></a> <a href="https://packagist.org/packages/altorouter/altorouter"><img src="https://poser.pugx.org/altorouter/altorouter/license.svg" alt="License" /></a> <a href="https://codeclimate.com/github/dannyvankooten/AltoRouter"><img src="https://codeclimate.com/github/dannyvankooten/AltoRouter/badges/gpa.svg" alt="Code Climate" /></a> <a href="https://codeclimate.com/github/dannyvankooten/AltoRouter"><img src="https://codeclimate.com/github/dannyvankooten/AltoRouter/badges/coverage.svg" alt="Test Coverage" /></a></h1>
+<p>AltoRouter is a small but powerful routing class, heavily inspired by <a href="https://github.com/chriso/klein.php/">klein.php</a>.</p>
+<pre><code class="hljs php language-php"><span class="hljs-variable">$router</span> = <span class="hljs-keyword">new</span> <span class="hljs-title class_">AltoRouter</span>();
+
+<span class="hljs-comment">// map homepage</span>
+<span class="hljs-variable">$router</span>-&gt;<span class="hljs-title function_ invoke__">map</span>(<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;/&#x27;</span>, function() {
+    <span class="hljs-keyword">require</span> <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">&#x27;/views/home.php&#x27;</span>;
+});
+
+<span class="hljs-comment">// dynamic named route</span>
+<span class="hljs-variable">$router</span>-&gt;<span class="hljs-title function_ invoke__">map</span>(<span class="hljs-string">&#x27;GET|POST&#x27;</span>, <span class="hljs-string">&#x27;/users/[i:id]/&#x27;</span>, function(<span class="hljs-variable">$id</span>) {
+  <span class="hljs-variable">$user</span> = .....
+  <span class="hljs-keyword">require</span> <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">&#x27;/views/user/details.php&#x27;</span>;
+}, <span class="hljs-string">&#x27;user-details&#x27;</span>);
+
+<span class="hljs-comment">// echo URL to user-details page for ID 5</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-variable">$router</span>-&gt;<span class="hljs-title function_ invoke__">generate</span>(<span class="hljs-string">&#x27;user-details&#x27;</span>, [<span class="hljs-string">&#x27;id&#x27;</span> =&gt; <span class="hljs-number">5</span>]); <span class="hljs-comment">// Output: &quot;/users/5&quot;</span>
+</code></pre>
+<h2 id="features">Features</h2>
+<ul>
+<li>Can be used with all HTTP Methods</li>
+<li>Dynamic routing with named route parameters</li>
+<li>Reversed routing</li>
+<li>Flexible regular expression routing (inspired by <a href="http://www.sinatrarb.com/">Sinatra</a>)</li>
+<li>Custom regexes</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>You need PHP &gt;= 5.6 to use AltoRouter, although we highly recommend you <a href="https://secure.php.net/supported-versions.php">use an officially supported PHP version</a> that is not EOL.</p>
+<ul>
+<li><a href="http://altorouter.com/usage/install.html">Install AltoRouter</a></li>
+<li><a href="http://altorouter.com/usage/rewrite-requests.html">Rewrite all requests to AltoRouter</a></li>
+<li><a href="http://altorouter.com/usage/mapping-routes.html">Map your routes</a></li>
+<li><a href="http://altorouter.com/usage/matching-requests.html">Match requests</a></li>
+<li><a href="http://altorouter.com/usage/processing-requests.html">Process the request your preferred way</a></li>
+</ul>
+<h2 id="contributors">Contributors</h2>
+<ul>
+<li><a href="https://github.com/dannyvankooten">Danny van Kooten</a></li>
+<li><a href="https://github.com/koenpunt">Koen Punt</a></li>
+<li><a href="https://github.com/adduc">John Long</a></li>
+<li><a href="https://github.com/niahoo">Niahoo Osef</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p>MIT License</p>
+<p>Copyright (c) 2012 Danny van Kooten <a href="m&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#104;&#105;&#64;&#100;&#x61;&#x6e;&#x6e;&#121;&#x76;&#x61;&#x6e;&#x6b;o&#x6f;&#116;&#x65;n&#46;&#x63;&#x6f;&#109;">&#x68;&#x69;&#64;&#x64;&#x61;&#x6e;&#110;&#121;&#x76;&#97;&#110;&#x6b;&#111;&#x6f;&#x74;&#101;n&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
